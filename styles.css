@@ -1,114 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Playwrite+IT+Trad:wght@100..400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/20+\ Bold\ Studio\ Kitchen\ Ideas\ in\ Eye-Catching\ Orange\ •\ 333+\ Art\ Images.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    z-index: -1;
+    background-color: black;
+}
+
 body {
     font-family: Arial, sans-serif;
+    position: relative;
     margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-    background-image: url('images/Waldo\ -\ 2\'\ x\ 3\'.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.links{
-    float: inline-end;
-    
-}
-
-header {
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
-    align-items:flex-start;
+    flex-direction: column;
+    padding-top: 75px;
+    /* Add padding to account for fixed topbar */
 }
-
-.topbar img {
-    width: 55px;  /* Changed from 50px to 30px */
-    height: 55px; /* Changed from 50px to 30px */
-}
-
 
 .topbar {
     text-align: left;
-    align-items: center;
     display: flex;
+    align-items: center;
     background: linear-gradient(to right, #592900, #BF5700);
     width: 100%;
     padding: 10px 20px;
     justify-content: space-between;
-    
-    
+    height: 75px;
+    position: fixed;
+    /* Change to fixed */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Ensure it's above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.topbar ul {
+.topbar img {
+    width: 55px;
+    height: 55px;
+}
+
+.topbar h2 {
+    position: absolute;
+    left: 7%;
+    font-weight: 700;
+    font-family: "Playwrite IT Trad", cursive;
+    color: black;
+}
+
+
+.search-container {
     display: flex;
-    align-items: center;
-    margin-left: 0;
-}
-
-.topbar ul a {
-    padding: 10px;
-    text-decoration: none;
-    color: white;
-}
-
-header h3 {
-    margin-left: 0;
-    padding: 10px;
-    color: white;
-}
-
-main {
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    margin-top: 15%;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(155, 75, 63, 0.7);
+    position: sticky;
+    top: 75px;
+    /* Position it right below the topbar */
+    z-index: 999;
+    /* Ensure it's below the topbar but above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 input {
-    width: 400px;
+    width: 300px;
     height: 50px;
-    margin-right: 30px;
+    margin-right: 10px;
     border-radius: 10px;
-    background-color: #7B372F;
-    opacity: 0.7;
+    background-color: #9B4B3F;
+    opacity: 1;
+    border: none;
+    padding: 0 10px;
+    color: white;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 button {
-    width: 150px;
+    width: 100px;
     height: 50px;
     border-radius: 10px;
-    background-color: #7B372F;
-    opacity: 0.7;
+    background-color: #9B4B3F;
+    opacity: 1;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
-#about-us {
-    margin-top: 30%;
-    font-size: large;
+button:hover {
+    background-color: #8B3F33;
 }
 
 #results {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
+    overflow-y: auto;
+    /* Allow vertical scrolling */
 }
 
 .recipe-card {
-    background-color: #fff;
+    background-color: #FFA07A;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .recipe-card:hover {
     transform: translateY(-5px);
-
 }
 
 .recipe-card img {
@@ -121,6 +145,7 @@ button {
     padding: 10px;
     font-size: 16px;
     text-align: center;
+    flex-grow: 1;
 }
 
 .pop-card {
@@ -128,14 +153,23 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: #FFA07A;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    z-index: 1000;
-    max-width: 80%;
-    max-height: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    /* Ensure it's above the topbar */
+    max-width: 60%;
+    max-height: 90%;
     overflow-y: auto;
+}
+
+.pop-card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 .close-popup {
@@ -143,27 +177,50 @@ button {
     top: 10px;
     right: 10px;
     padding: 5px 10px;
-    background-color: #f44336;
+    background-color: #FF5A36;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-@media (max-width: 1200px) {
-    #results {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
-    #results {
-        grid-template-columns: repeat(2, 1fr);
+    body {
+        padding-top: 120px;
+        /* Adjust for taller topbar on mobile */
     }
-}
 
-@media (max-width: 480px) {
+    .topbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .topbar h2 {
+        position: static;
+        margin-bottom: 10px;
+    }
+
+    .topbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-container {
+        top: 120px;
+        /* Adjust for taller topbar on mobile */
+        flex-direction: column;
+    }
+
+    input,
+    button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
     #results {
         grid-template-columns: 1fr;
     }
 }
+

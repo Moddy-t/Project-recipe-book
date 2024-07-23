@@ -6,7 +6,7 @@ const resultsSection = document.getElementById('results');
 
 // Event Listeners
 searchButton.addEventListener('click', searchRecipes);
-searchInput.addEventListener('keydown', handleEnterKey);
+searchInput.addEventListener('keyup', handleEnterKey);
 
 // Functions to fetch data from db
 function searchRecipes() {
@@ -15,7 +15,7 @@ function searchRecipes() {
 }
 
 function fetchData(query) {
-    fetch('http://localhost:3000/recipe')
+    fetch('https://recipe-database-one.vercel.app/recipe')
         .then(response => response.json())
         .then(data => {
             const matchedRecipes = data.filter(recipe => recipe.title.toLowerCase().includes(query));
@@ -35,10 +35,8 @@ function displayRecipes(recipes) {
         recipeCard.classList.add('recipe-card');
         recipeCard.innerHTML = `
             <img src="${recipe.image}" alt="${recipe.title}">
-            <h3>${recipe.title}</h3>
-            <button class="view-details">View Details</button>
-        `;
-        recipeCard.querySelector('.view-details').addEventListener('click', () => showPopUp(recipe));
+            <h3>${recipe.title}</h3`
+        recipeCard.addEventListener('click', () => showPopUp(recipe));
         resultsSection.appendChild(recipeCard);
     });
 }
@@ -49,14 +47,14 @@ function showPopUp(recipe) {
 
     pop_up.innerHTML = `
         <h1>${recipe.title}</h1> <br>
-        <img src="${recipe.image}" alt="${recipe.title}"><br>
-        <p>Ingredients: ${recipe.ingredients_list}</p><br>
+        <img src="${recipe.image}" alt="${recipe.title}" ><br>
+        <p>Ingredients: ${recipe.ingredient_list}</p><br>
         <p>Instructions: ${recipe.instructions}</p><br>
         <p>Prep time: ${recipe.preparation_time}</p><br>
         <p>Cook time: ${recipe.cooking_time}</p><br>
-        <p>Total time: ${recipe.preparation_time + recipe.cook_time}</p><br>
+        <p>Total time: ${parseInt(recipe.preparation_time) + parseInt(recipe.cooking_time)} minutes</p><br>
         <p>Yield: ${recipe.yield}</p><br>
-        <p>Allergen info: ${recipe.allergen_information_}</p><br>
+        <p>Allergen info: ${recipe.allergen_information}</p><br>
         <p>Storage info: ${recipe.storage_information}</p><br>
         <p>Tips: ${recipe.tips}</p><br>
         <button class="close-popup">Close</button>
