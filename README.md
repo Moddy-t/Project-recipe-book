@@ -20,7 +20,7 @@ The user can proceed to be more specific and still get results,so the user can f
 
 - I went ahead and fetched from json File, with is data i created a called matchedREcipes that says if the input value is greater than zero, matched recipes to that value is displayed , if there are no results found the user gets a notification in the page to try another search.
 
-- I created a recipe card div that will display the title and image in the inner HTML and gae it a class "recipe-card" and gave it a click event listener such that when the recipe card is clicked it pops up another card that we are going to create just now.
+- I created a recipe card div that will display the title and image in the inner HTML and gave it a class "recipe-card" and gave it a click event listener such that when the recipe card is clicked it pops up another card that we are going to create just now.
 
 - Now we wre creating that div. It is going to ba a pop up card that holds the attributes of the recipe including a close button.
 - To do this we will creare a function that creates elememnts for these attributes in the inner HTML and appended it as a chile of the body.
@@ -32,4 +32,7 @@ The user can proceed to be more specific and still get results,so the user can f
 
 ## VIDEO LINK
 https://www.loom.com/share/9beb2de3e0e44f32bffda19e54f18a20?sid=c7cdc64c-0eb4-411b-8a71-165c212ec7d8
+
+## Live project demo link 
+[live project demo](https://project-recipe-book.vercel.app/)
 
